@@ -175,8 +175,7 @@ body {
 svg path {
   stroke-dasharray: 1;
   stroke-dashoffset: 1;
-  animation: draw 5s linear alternate infinite;
-  justify-content: center;      
+  animation: draw 5s linear alternate infinite;    
 }
 
 @keyframes draw {
