@@ -24,6 +24,7 @@ body {
       }
       .heart {
         position: relative;
+        justify-content: center;
         width: 138px;
         height: 10px;
       }
@@ -175,6 +176,7 @@ svg path {
   stroke-dasharray: 1;
   stroke-dashoffset: 1;
   animation: draw 5s linear alternate infinite;
+  justify-content: center;      
 }
 
 @keyframes draw {
