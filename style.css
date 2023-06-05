@@ -25,8 +25,8 @@ body {
       .heart {
         position: relative;
         justify-content: center;
-        width: 315pc;
-        height: 342px;
+        width: 215px;
+        height: 20px;
       }
       .heart:hover [class*="heart-piece-"] {
         animation-play-state: paused;
@@ -34,9 +34,9 @@ body {
       [class*="heart-piece-"] {
         position: absolute;
         top: -5px;
-        width: 10px;
-        height: 10px;
-        border-radius: 5px;
+        width: 315px;
+        height: 342px;
+        border-radius: 3px;
       }
       .heart-piece-0,
       .heart-piece-8 {
