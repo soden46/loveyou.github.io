@@ -171,3 +171,17 @@ body {
           top: -22px;
         }
       }
+svg path {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: draw 5s linear alternate infinite;
+}
+
+@keyframes draw {
+  from {
+    stroke-dashoffset: 1;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
