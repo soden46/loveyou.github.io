@@ -8,24 +8,30 @@
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
-    <canvas id='myCanvas'></canvas>
-      <div class="flex-container">
-      <div class="container justify-content-center">
-        <div class="heart">
-          <div class="heart-piece-0"></div>
-          <div class="heart-piece-1"></div>
-          <div class="heart-piece-2"></div>
-          <div class="heart-piece-3"></div>
-          <div class="heart-piece-4"></div>
-          <div class="heart-piece-5"></div>
-          <div class="heart-piece-6"></div>
-          <div class="heart-piece-7"></div>
-          <div class="heart-piece-8"></div>
-        </div>
-        <p>Love is Love</p>
-        <p>But My Love Is Only For You</p>
-      </div>
-    </div>
-    <script src="app.js"></script>
+   <svg
+xmlns="http://www.w3.org/2000/svg"
+xmlns:xlink="http://www.w3.org/1999/xlink"
+version="1.1" height="315" width="342" viewBox="20 -10 315 342">
+ <defs>
+  <style type="text/css"><![CDATA[
+    .outline { stroke:none; stroke-width:0 }
+  ]]></style>
+   <g id="heart">
+   <path
+    stroke="red"
+    pathLength="1"
+    stroke-width="5"
+    d="M0 200 v-200 h200 
+    a100,100 90 0,1 0,200
+    a100,100 90 0,1 -200,0
+    z" />
+  </g>
+ </defs>
+ <desc>
+   a nearly perfect heart
+	 made of two arcs and a right angle
+ </desc>
+  <use xlink:href="#heart" class="outline " fill="none" transform="rotate(225,150,121)" />
+</svg>
   </body>
 </html>
