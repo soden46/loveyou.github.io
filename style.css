@@ -1,4 +1,3 @@
-html { background: #222; height: 100%; }
 body { 
     min-height: 100%; 
     display: flex; 
@@ -24,23 +23,6 @@ body {
     background-color: #000000;
     background-repeat: no-repeat;
 }
-svg { display: block; margin: auto; max-width: 500px; width: 90%; max-height: 90vh; }
-
-.gradient-path { 
-  fill: none; /* No fill so we're just enjoying the stroke */
-  stroke-width: 2; /* Make the stroke a bit wider so we can see it better */
-  stroke-linecap: round; /* Make the stroke edges nice & round */
-  stroke-linejoin: round; /* Smooth out corners */
-  
-  --total-offset: 0; /* CSS var that will be populated by the JS for the CSS animation */
-  animation: stroke-anim 6s linear infinite;
-}
-
-/* Go from the current `stroke-dashoffset` (set in the JS), to the total offset (provided by the JS in the CSS var */
-@keyframes stroke-anim {
-  to { stroke-dashoffset: var(--total-offset); }
-}
-
 
 div {
     color: #FC0410;
