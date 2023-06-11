@@ -1,4 +1,4 @@
-let textcanvas = document.getElementById('textcanvas');
+let textcanvas = document.getElementById("textcanvas");
 let ctx = textcanvas.getContext('2d');
 
 ctx.font = 'bold 88px Arial';
