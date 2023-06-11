@@ -11,6 +11,8 @@ body{
     align-items: center;
     min-height: 100vh;
     background: #392525;
+    overflow: hidden;  
+    background-repeat: no-repeat;
 }
 h2{
     position: relative;
