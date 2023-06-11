@@ -1,4 +1,4 @@
-var canvas = document.getElementById('myCanvas');
+var canvas = document.getElementById("myCanvas");
 var context = canvas.getContext('2d');
 var i = 0; j = 0.1, t = 0;
 var col = new Array('green', 'blue', 'red', 'cyan', 'magenta', 'yellow
