@@ -1,48 +1,39 @@
-console.clear();
+const $canvas = document.getElementById('canvas');
 
-// How many copies of the path to make (more = smoother gradient, but more clones of the path)
-var resolution = 14;
+const context = $canvas.getContext("2d");
 
-// Using Array.from to...
-var gradientPaths = Array.from(
+const $path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+$path.setAttribute(
+  "d",
+  "M155,205 l-45,-45 a31.8198,31.8198,0 1 1 45,-45 a31.8198,31.8198,0 1 1 45,45 z"
+);
+
+const totalLength = $path.getTotalLength();
+
+const path = new Path2D($path.getAttribute("d"));
+
+globalThis.direction = 1;
+
+render();
+function render(length = 0) {
+  context.clearRect(0, 0, 512, 512);
   
-  // ...find all .gradient-path elements...
-  document.querySelectorAll('.gradient-path'),
-  
-  // ...and run this function over them:
-  function(path){
+  const scale = length / totalLength;
 
-    // Get the length of the path
-    var length = path.getTotalLength();
+  context.beginPath();
+  context.setLineDash([length, totalLength]);
+  context.lineWidth = scale * 5;
+  context.setTransform(scale, 0, 0, scale, (1 - scale) * 130, (1 - scale) * 130);
+  context.stroke(path);
+
+  requestAnimationFrame(() => {
+    render(length + totalLength / 100 * globalThis.direction);
     
-    // How big each segment of the gradient should be
-    var segmentLength = ( length / resolution );
-
-    // Create a group for all of the new paths to reside in
-    var g = document.createElementNS('http://www.w3.org/2000/svg', 'g');
-    path.parentNode.insertBefore(g, path.nextSibling);
-    
-    // Apply some styles for all the cloned paths on the <g> to be inherited
-    g.style.strokeDasharray =  segmentLength + ' ' + ( length - segmentLength );
-
-    for (var i = 0; i < resolution; i++) {
-      // Clone the path
-      var c = path.cloneNode();
-      
-      // Give it a nice color spanning the entire spectrum
-      c.style.stroke = 'hsl(' + (i / resolution) * 360 + ', 75%, 60%)';
-      
-      // How much the stroke-dash should be offset (`stroke-dashoffset`)
-      var offset = length * ( i / resolution );
-      c.style.strokeDashoffset = offset;
-      
-      // Pass along the necessary offset for the CSS animation as a CSS var
-      c.style.setProperty('--total-offset', (length + offset) );
-      
-      // Add the cloned path to the group
-      g.appendChild(c);
+    if (length < 0 && globalThis.direction === -1) {
+      globalThis.direction = +1;
     }
-
-    return path;
-
+    if (length > totalLength && globalThis.direction === 1) {
+      globalThis.direction = -1;
+    }
   });
+}
