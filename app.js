@@ -26,4 +26,4 @@ context.fill();
 if (i > 6.5) { j = -0.1; context.clearRect(0, 0, 500, 400); }
 if (i < -0.1) { j = 0.1; context.clearRect(0, 0, 500, 400);
 }
-window.setInterval('timing()', 300
+window.setInterval('timing()', 300)
