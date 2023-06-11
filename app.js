@@ -1,5 +1,4 @@
 var syarifcanvas = document.getElementById("syarifcanvas");
-let ctx = canvas.getContext('2d');
 
 syarifcanvas.width = window.innerWidth;
 syarifcanvas.height = window.innerHeight;
@@ -277,8 +276,5 @@ function draw(){
 
   requestAnimationFrame(draw);
 }
-ctx.font = 'bold 88px Arial';
-ctx.strokeStyle = 'blue';
-ctx.lineWidth = 5;
-ctx.strokeText("For My Love, Aku mungkin tidak selalu bersamamu Tapi saat kita berjauhan Ingatlah kamu akan bersamaku Tepat dalam hatiku", 10, 50);
+
 draw();
