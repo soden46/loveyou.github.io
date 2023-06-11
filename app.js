@@ -1,10 +1,10 @@
-var canvas = document.getElementById("canvas");
+var syarifcanvas = document.getElementById("syarifcanvas");
 
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
+syarifcanvas.width = window.innerWidth;
+syarifcanvas.height = window.innerHeight;
 
 // Initialize the GL context
-var gl = canvas.getContext('webgl');
+var gl = syarifcanvas.getContext('webgl');
 if(!gl){
   console.error("Unable to initialize WebGL.");
 }
@@ -175,9 +175,9 @@ void main(){
 window.addEventListener('resize', onWindowResize, false);
 
 function onWindowResize(){
-  canvas.width  = window.innerWidth;
-  canvas.height = window.innerHeight;
-    gl.viewport(0, 0, canvas.width, canvas.height);
+  syarifcanvas.width  = window.innerWidth;
+  syarifcanvas.height = window.innerHeight;
+    gl.viewport(0, 0, syarifcanvas.width, syarifcanvas.height);
   gl.uniform1f(widthHandle, window.innerWidth);
   gl.uniform1f(heightHandle, window.innerHeight);
 }
