@@ -29,54 +29,6 @@ body {
     color: white;;
     background-color: #000000;
     background-repeat: no-repeat;
-
-    font-family: 'Marck Script';
-}
-
-.title {
-    font-size: 5em;
-}
-
-.c-heart {
-    position: absolute;
-    width: 300px;
-    height: 400px;
-    opacity: 1;
-}
-[loaded] .c-heart {
-    position: relative;
-}
-
-.c-heart::before {
-  content: '';
-}
-
-.c-heart-alt {
-    font-size: 8em;
-    color: #ff7171;
-    margin: 0 0.2em;
-}
-[loaded] .c-heart-alt {
-    display: none;
-}
-
-.shadow { position: relative }
-.shadow::before,
-.shadow::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  height: 100%;
-  width: 15%;
-  z-index: 2;
-}
-.shadow::before {
-  left: 0;
-  background: linear-gradient(to left, rgba(0,0,0,0), rgba(0,0,0,1))
-}
-.shadow::after {
-  right: 0;
-  background: linear-gradient(to left, rgba(0,0,0,1), rgba(0,0,0,0))
 }
 
 div {
