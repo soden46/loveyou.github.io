@@ -1,29 +1,48 @@
-var canvas = document.getElementById("myCanvas");
-var context = canvas.getContext('2d');
-var i = 0; j = 0.1, t = 0;
-var col = new Array('green', 'blue', 'red', 'cyan', 'magenta', 'yellow
-function timing() {
-t = t + 1;
-i = i + j;
-if (t > 5) { t = 0; }
-//var r=Math.pow(10000*Math.cos(2*i),0.5);
-var x = 250 + 160*Math.sin(i)*Math.sin(i)*Math.sin(i); var y = -(-170+ 10*(13*Math.cos(i)- 5*Math.cos(2*i) - 2*Math.cos(3*i) - Math.cos(4*i)));
-//context.font="40px Georgia";
-//context.textAlign='center';
-//context.fillText('.',x,y);
-//context.fillStyle='purple';
-context.beginPath();
-context.moveTo(250, 200);
-context.lineTo(x, y);
-context.lineCap = 'round';
-context.strokeStyle = 'rgba(0,0,255,0.6)';
-context.stroke();
-context.beginPath();
-context.moveTo(250, 200
-context.arc(x, y, 8, 0, 2 * Math.PI);
-context.fillStyle = col[t];
-context.fill();
-if (i > 6.5) { j = -0.1; context.clearRect(0, 0, 500, 400); }
-if (i < -0.1) { j = 0.1; context.clearRect(0, 0, 500, 400);
-}
-window.setInterval('timing()', 300)
+console.clear();
+
+// How many copies of the path to make (more = smoother gradient, but more clones of the path)
+var resolution = 14;
+
+// Using Array.from to...
+var gradientPaths = Array.from(
+  
+  // ...find all .gradient-path elements...
+  document.querySelectorAll('.gradient-path'),
+  
+  // ...and run this function over them:
+  function(path){
+
+    // Get the length of the path
+    var length = path.getTotalLength();
+    
+    // How big each segment of the gradient should be
+    var segmentLength = ( length / resolution );
+
+    // Create a group for all of the new paths to reside in
+    var g = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+    path.parentNode.insertBefore(g, path.nextSibling);
+    
+    // Apply some styles for all the cloned paths on the <g> to be inherited
+    g.style.strokeDasharray =  segmentLength + ' ' + ( length - segmentLength );
+
+    for (var i = 0; i < resolution; i++) {
+      // Clone the path
+      var c = path.cloneNode();
+      
+      // Give it a nice color spanning the entire spectrum
+      c.style.stroke = 'hsl(' + (i / resolution) * 360 + ', 75%, 60%)';
+      
+      // How much the stroke-dash should be offset (`stroke-dashoffset`)
+      var offset = length * ( i / resolution );
+      c.style.strokeDashoffset = offset;
+      
+      // Pass along the necessary offset for the CSS animation as a CSS var
+      c.style.setProperty('--total-offset', (length + offset) );
+      
+      // Add the cloned path to the group
+      g.appendChild(c);
+    }
+
+    return path;
+
+  });
