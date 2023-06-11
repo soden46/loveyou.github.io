@@ -16,7 +16,7 @@ body{
 }
 
 h2{
-    position: relative;
+    position: absolute;
     font-size: 14vw;
     color: #4b0101;
     -webkit-text-stroke: 0.3vw #fcf005;
@@ -24,7 +24,7 @@ h2{
 }
 h2::before{
     content:attr(data-text);
-    position: relative;
+    position: absolute;
     top: 0;
     left: 0;
     width: 0;
