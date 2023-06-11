@@ -1,12 +1,10 @@
-body{
-    display: flex;
+html, body{
     text-align:center;
     justify-content: center;
     align-items: center;
     height: 100vh;
     background: #392525;
     overflow: hidden;  
-    transition: background 3s;
     font-family:'Roboto';
     font-weight:300;
     font-size:32px;
