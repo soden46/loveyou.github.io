@@ -14,9 +14,19 @@ body{
     overflow: hidden;  
     transition: background 3s;
 }
+#syarifcanvas {
+    position: relative;
+    height:600;
+    width:1400;
+}
 canvas {
   background-position: center;
   transition: background 3s;
+}
+canvas:active {
+  background-color:#039BE5;
+  background-size: 100%;
+  transition: background 0s;
 }
 h2{
     position: relative;
