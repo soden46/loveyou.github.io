@@ -15,10 +15,12 @@ body {
 
     overflow: hidden;
    background-color: #c2c2c2;
+    -webkit-backface-visibility: hidden;
+  -webkit-perspective: 1000;
+  -webkit-transform: translate3d(0,0,0);
 }
 
 div {
-    color: #FC0410;
   display:inline-block;
   overflow:hidden;
   white-space:nowrap;
