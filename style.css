@@ -15,14 +15,14 @@ body{
     transition: background 3s;
 }
 
-p{
+h2{
     position: relative;
     font-size: 14vw;
     color: #4b0101;
     -webkit-text-stroke: 0.3vw #fcf005;
     text-transform: uppercase;
 }
-p::before{
+h2::before{
     content:attr(data-text);
     position: relative;
     top: 0;
