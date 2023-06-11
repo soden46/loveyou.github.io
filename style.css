@@ -15,6 +15,7 @@ html, body{
 }
 
 div {
+    color: #FC0410;
   display:inline-block;
   overflow:hidden;
   white-space:nowrap;
